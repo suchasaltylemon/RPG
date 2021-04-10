@@ -5,7 +5,6 @@ class Service:
         if not hasattr(targetCls, "_singleton"):
             setattr(targetCls, "_singleton", targetCls())
 
-            targetCls.__call__ = lambda *_: targetCls._singleton
+        return lambda *_: targetCls._singleton
 
-        return targetCls._singleton
-
+from . import RunService
